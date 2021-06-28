@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Post{% endblock %}
+
+{% block body %}
+
+<div class="col-md-6 offset-3 mt-5">
+    <h2>Crear Post</h2>
+
+    {{ include('post/_form.html.twig') }}
+
+    <a class="btn btn-warning mt-2" href="{{ path('post_index') }}">Ver Entradas</a>
+</div>
+{% endblock %}

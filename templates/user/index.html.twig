@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+    <div class="col-10 offset-2 mt-5">
+    
+        {# <div class="alert alert-success">
+            Bienvenido {{ app.user.username }}
+        </div> #}
+
+        <h1>User index</h1>
+
+        <table class="table table-striped" id="myTable">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>First_name</th>
+                    <th>Lasta_name</th>
+                    <th>Email</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.firstName }}</td>
+                    <td>{{ user.lastName }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        <a class="btn btn-info" href="{{ path('user_show', {'id': user.id}) }}">show</a>
+                        <a class="btn btn-info" href="{{ path('app_logout') }}">salir</a>
+                        <a class="btn btn-success" href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <a class="btn btn-dark" href="{{ path('user_new') }}">Create new</a>
+    </div>
+{% endblock %}
